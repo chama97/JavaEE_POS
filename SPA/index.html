@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS_Customers</title>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+   
+</head>
+<body>
+    <nav class=" navbar navbar-expand-lg navbar-dark " style="background-color: #5f8ba8;">
+        <div class="container-fluid ">
+          <a class="nav navbar-brand  mt-1" href="#" >
+            <img src="assets/img/icons8_multibanco_96px.png" alt="" width="45" height="45" class="d-inline-block align-text-top"> PLACE ORDER SYSTEM</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" id="nav-home" href="#">Home</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" id="nav-custom" href="#" >Customers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="nav-item" href="#">Items</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="nav-order" href="#">PlaceOrder</a>
+              </li>
+            </ul>
+            <button class="btn btn-danger" type="submit">LOGOUT</button>
+          </div>
+        </div>
+      </nav>
+
+     
+   
+
+  <!-- customer///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <section class="container" id="customWindow">
+      <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb mt-5">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Customers</li>
+        </ol>
+      </nav>
+
+      <section class="row">
+          <div class="custombar col-12 col-md-12 mt-1">
+            <p class="mt-2"><img src="assets/img/users.png" alt="" width="45" height="45">Customers</p>
+          </div>
+      </section>
+
+      <section class="row">
+        <div class="col-12 col-md-12 col-lg  mt-5">
+          <div id="btnsCustomer" class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+            <button id="btnUpdateCustomer" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+            <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#addModal">Add New Customer</button>
+          </div>
+        </div>
+
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div id="deleteCustomer" class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Customer</h5>
+                <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to delete customer?
+              </div>
+              <div class="modal-footer">
+                <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="btnCusDelete" type="button" class="btn btn-danger">Delete Customer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div id="addCustomer" class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Customer</h5>
+                <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Customer Id</label>
+                    <input type="text" class="form-control " id="txtCustomerId" aria-describedby="emailHelp">
+                    <p><small class="text-danger pl-1" id="lblcusid"></small></p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Name</label>
+                    <input type="text" class="form-control " id="txtCustomerName">
+                    <p><small class="text-danger pl-1" id="lblcusname"></small></p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Address</label>
+                    <input type="text" class="form-control " id="txtCustomerAddress">
+                    <p><small class="text-danger pl-1" id="lblcusaddress"></small></p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Contact</label>
+                    <input type="text" class="form-control " id="txtCustomerContact">
+                    <p><small class="text-danger pl-1" id="lblcussalary"></small></p>
+                  </div>                
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button id="btnCustClear" type="button" class="btn btn-danger" >Clear</button>
+                <button id="btnCustadd" type="button" class="btn btn-success">Add Customer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div id="updateCustomer" class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Customer</h5>
+                <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Customer Id</label>
+                    <input type="text" class="form-control " id="txtCustomerId2" aria-describedby="emailHelp">
+                    <p><small class="text-danger pl-1" id="lblcusid"></small></p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Name</label>
+                    <input type="text" class="form-control " id="txtCustomerName2">
+                    <p><small class="text-danger pl-1" id="lblcusname"></small></p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Address</label>
+                    <input type="text" class="form-control " id="txtCustomerAddress2">
+                    <p><small class="text-danger pl-1" id="lblcusaddress"></small></p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Contact</label>
+                    <input type="text" class="form-control " id="txtCustomerContact2">
+                    <p><small class="text-danger pl-1" id="lblcussalary"></small></p>
+                  </div>                
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button id="btnCustClear" type="button" class="btn btn-danger" >Clear</button>
+                <button id="btnCustUpdate" type="button" class="btn btn-success">Update</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div  class="col col-md-12 col-lg  mt-5">
+          <form id="search" class="d-flex">
+            <input id="txtSearchCusID" aria-label="Search" class="border form-control me-2  border-primary border-3" placeholder="Enter Customer" type="search">
+            <div class="dropdown">
+              <a class="btn btn-light btn-lg dropdown-toggle border-success border-3" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Type
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#">ID</a></li>
+                <li><a class="dropdown-item" href="#">Name</a></li>
+              </ul>
+            </div>
+            <button id="btnCustomerSearch" class="btn btn-outline-success border-success border-3" type="button" data-bs-toggle="modal" data-bs-target="#addModal">Search</button>
+          </form>
+        <div>
+      </section>
+     
+      <section class="row">
+        <table class="table  table-striped table-hover table-bordered border-light mt-5" style="background-color: #90bfdf;">
+          <thead class="table-striped" style="background-color: #024877; color: white;">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Contact</th>
+            </tr>
+          </thead>
+          <tbody id="cstTable" >
+           
+          </tbody>
+        </table>
+    </section>
+  </section>
+
+
+<!-- item//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<section class="container" id="itemWindow">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb mt-5">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Customers</li>
+    </ol>
+  </nav>
+
+  <section class="row">
+      <div class="custombar col-12 col-md-12 mt-1">
+        <p class="mt-2"><img src="assets/img/items.png" alt="" width="45" height="45">Items</p>
+      </div>
+  </section>
+
+  <section class="row">
+    <div class="col-12 col-md-12 col-lg  mt-5">
+      <div id="btnsItems" class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal2">Delete</button>
+        <button id="btnUpdateItem" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#updateModal2">Update</button>
+        <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#addModal2">Add New Item</button>
+      </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div id="deleteItem" class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete Item</h5>
+            <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete Item?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button id="btnItemDelete" type="button" class="btn btn-danger">Delete Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="addModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div id="addItem" class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add New Item</h5>
+            <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Item Code</label>
+                <input type="text" class="form-control " id="txtItemId" aria-describedby="emailHelp">
+                <p><small class="text-danger pl-1" id="lblitemid"></small></p>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Type</label>
+                <input type="text" class="form-control " id="txtItemName">
+                <p><small class="text-danger pl-1" id="lblitemname"></small></p>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Qty On Hand</label>
+                <input type="text" class="form-control " id="txtItemQty">
+                <p><small class="text-danger pl-1" id="lblitemqty"></small></p>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Price</label>
+                <input type="text" class="form-control " id="txtItemPrice">
+                <p><small class="text-danger pl-1" id="lblitemprice"></small></p>
+              </div>                
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button id="btnItemClear" type="button" class="btn btn-danger" >Clear</button>
+            <button id="btnItemAdd" type="button" class="btn btn-success">Add Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="updateModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div id="updateItem" class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update Item</h5>
+            <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Item Code</label>
+                <input type="text" class="form-control " id="txtItemId2" aria-describedby="emailHelp">
+                <p><small class="text-danger pl-1" id="lblitemid"></small></p>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Type</label>
+                <input type="text" class="form-control " id="txtItemName2">
+                <p><small class="text-danger pl-1" id="lblitemname"></small></p>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Qty On Hand</label>
+                <input type="text" class="form-control " id="txtItemQty2">
+                <p><small class="text-danger pl-1" id="lblitemqty"></small></p>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Price</label>
+                <input type="text" class="form-control " id="txtItemPrice2">
+                <p><small class="text-danger pl-1" id="lblitemprice"></small></p>
+              </div>                
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button id="btnItemClears" type="button" class="btn btn-danger" >Clear</button>
+            <button id="btnItemUpdate" type="button" class="btn btn-success">Update Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div  class="col col-md-12 col-lg  mt-5">
+      <form id="search" class="d-flex">
+        <input id="txtItemSearch" aria-label="Search" class="border form-control me-2  border-primary border-3" placeholder="Enter Item" type="search">
+        <div class="dropdown">
+          <a class="btn btn-light btn-lg dropdown-toggle border-success border-3" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            Type
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#">ID</a></li>
+            <li><a class="dropdown-item" href="#">Type</a></li>
+          </ul>
+        </div>
+        <button id="btnItemSearch" class="btn btn-outline-success border-success border-3" type="button" data-bs-toggle="modal" data-bs-target="#addModal2">Search</button>
+      </form>
+    <div>
+  </section>
+ 
+  <section class="row">
+    <table  class="table  table-striped table-hover table-bordered border-light mt-5" style="background-color: #90bfdf;">
+      <thead class="table-striped" style="background-color: #024877; color: white;">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Type</th>
+          <th scope="col">Qty</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody id="tblItem">
+       
+      </tbody>
+    </table>
+</section>
+</section>
+
+
+   
+
+<!-- placeOrder /////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+    <section class="container" id="orderwindow">
+
+      <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb mt-5">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">PlaceOrder</li>
+        </ol>
+      </nav>
+
+      <section class="row">
+          <div class="orderbar col-12 col-md-12 mt-1">
+            <p class="mt-2"><img src="assets/img/icons8_create_order_48px_3.png" alt="" width="45" height="45">PlaceOrder</p>
+          </div>
+      </section>
+    
+      <section class="row abcd">
+        <div class="detail col-11 col-md-5 col-lg-4   mt-5">
+          <div class="divs"><span class="text text-light">Customer Details</span></div>
+          <div class="modal-body">
+            <form>
+              <div class="mt-3">
+                <!-- <form id="search" class="d-flex"> -->
+                  <input id="InputCusId" aria-label="Search" class="border form-control me-2  border-primary border-3" placeholder="Enter Customer Id" type="search">
+                  <button id="btnCustomerSearch2" class="mt-3 btn btn-outline-success border-success border-3" type="button">Search</button>
+                <!-- </form>
+                <a class="btn btn-light btn-md dropdown-toggle border-primary border-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  Select Customer
+                </a>
+                <ul id="dropCustomer" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                </ul> -->
+              </div>
+              <div class="mt-5">
+                <label for="exampleInputPassword1" class="form-label ">Name</label>
+                <input type="text" class="form-control border-primary border-2" id="InputCusName">
+              </div>
+              <div class="mt-4">
+                <label for="exampleInputPassword1" class="form-label ">Address</label>
+                <input type="text" class="form-control border-primary border-2" id="InputCusAddress">
+              </div>
+              <div class="mt-4">
+                <label for="exampleInputPassword1" class="form-label ">Contact</label>
+                <input type="text" class="form-control border-primary border-2" id="InputCusContact">
+              </div>                
+            </form>
+          </div>
+         
+        </div>
+    
+        <div  class="detail col-11 col-md-5 col-lg-4  mt-5 ">
+          
+          <div class="divs"><span class="text text-light">Item Details</span></div>
+          <div class="modal-body">
+            <form>
+              <div class="dropdown mt-3 d-flex">
+                <input id="InputItemCode" aria-label="Search" class="border form-control me-2  border-primary border-3" placeholder="Enter Item code" type="search">
+                <button id="btnItemSearch2" class="mt-1 btn btn-outline-success border-success border-3" type="button">Search</button>
+              </div>
+              <div class="mb-3 mt-4">
+                <label for="exampleInputPassword1" class="form-label ">Item Type</label>
+                <input type="text" class="form-control border-primary border-2" id="InputItemType">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label ">Qty On Hand</label>
+                <input type="text" class="form-control border-primary border-2" id="InputItemQtyHand">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label ">Price</label>
+                <input type="text" class="form-control border-primary border-2" id="InputItemPrice">
+              </div> 
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label ">Qty For Sale</label>
+                <input type="text" class="form-control border-primary border-2" id="InputItemQtySale">
+              </div>  
+              <div class="form-floating mt-4">
+                <button id="btnAddTocart" type="button" class="btn btn-success right">Add to Cart</button>
+                <button id="btnClearOrder" type="button" class="btn btn-danger right">Clear</button>
+              </div>              
+            </form>
+          </div> 
+        </div>
+    
+        <div  class="detail col-11 col-md-11 col-lg-3  mt-5">
+            <div class="divs"><span class="text text-light ">Order Details</span></div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3 mt-3">
+                  <input type="date" class="form-control border-primary border-2" id="orderDate">
+                </div>
+                <div class="form-floating mt-4">
+                  <input type="text" class="form-control" id="orderId" placeholder="Price">
+                  <label for="floatingPassword">Order Id</label>
+                </div> 
+                <div class="form-floating mt-4">
+                  <input type="text" class="form-control border-danger border-4" id="orderPrice" placeholder="Price" >
+                  <label for="floatingPassword">Price</label>
+                </div>   
+                <div class="form-floating mt-4">
+                  <input type="text" class="form-control border-primary border-4" id="orderDiscount" placeholder="Price">
+                  <label for="floatingPassword">Discount %</label>
+                </div>   
+                <div class="form-floating mt-4">
+                  <input type="text" class="form-control border-success border-4" id="orderBalance" placeholder="Price">
+                  <label for="floatingPassword">Balance</label>
+                </div> 
+                <div class="form-floating mt-5">
+                  <button id="btnPlaceOrder" type="button" class="btn btn-success right">Place Order</button>
+                  <button id="btnCancelOrder" type="button" class="btn btn-danger right">Cancel Order</button>
+                </div>              
+              </form>
+            </div>
+        </div>
+      </section>
+    
+      <section class="row">
+        <table class="table  table-striped table-hover table-bordered border-light mt-5" style="background-color: #90bfdf;">
+          <thead class="table-striped" style="background-color: #024877; color: white;">
+            <tr>
+              <th scope="col">Item Code</th>
+              <th scope="col">Type</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Price</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody id="tblOrder">
+           
+          </tbody>
+        </table>
+      </section>
+    </section>
+
+    
+    <script src="assets/jQuery/jquery-3.6.0.min.js"></script> 
+
+    <script src="model/Customer.js"></script>
+
+    <script src="model/Item.js"></script>
+
+    <script src="model/Order.js"></script>
+
+    <script src="db/Db.js"></script>
+
+    <script  src="controller/CustomerController.js"></script>
+
+    <script src="controller/ItemController.js"></script>
+
+    <script src="controller/OrderController.js"></script>
+
+    
+    
+    <script>
+      document.getElementById("itemWindow").style.display="none";
+      document.getElementById("orderwindow").style.display="none";
+  
+      document.getElementById("nav-custom").addEventListener("click",function () {
+        document.getElementById("customWindow").style.display="block";
+        document.getElementById("itemWindow").style.display="none";
+        document.getElementById("orderwindow").style.display="none";
+      });
+ 
+      document.getElementById("nav-item").addEventListener("click",function () {
+        document.getElementById("itemWindow").style.display="block";
+        document.getElementById("customWindow").style.display="none";
+        document.getElementById("orderwindow").style.display="none";  
+      });
+ 
+      document.getElementById("nav-order").addEventListener("click",function () {
+        document.getElementById("orderwindow").style.display="block";
+        document.getElementById("itemWindow").style.display="none";
+        document.getElementById("customWindow").style.display="none";
+      }); 
+     
+  
+//     $("#btnCustadd").click(function () {
+//         saveCustomer();
+//         clearAll();
+//         loadAllCustomers();
+//     });
+
+//     $("#btnCustUpdate").click(function () {
+//         updateCustomer();
+//         clearAll();
+//     });
+
+//     $("#btnCustClear").click(function () {  
+//         clearAll();
+//     });
+
+//     $("#btnCustomerSearch").click(function () {
+//         var searchID = $("#txtSearchCusID").val();
+//         var response = searchCustomer(searchID);
+//         if (response) {
+//             $("#txtCustomerId").val(response.id);
+//             $("#txtCustomerName").val(response.name);
+//             $("#txtCustomerAddress").val(response.address);
+//             $("#txtCustomerContact").val(response.contact);
+//         }else{
+//             clearAll();
+//             alert("No Such a Customer");
+//         }
+//     });
+
+
+//   $("#btnCusDelete").click(function () {
+//     let customerID=$("#txtSearchCusID").val();
+//     let index=searchCustomer(customerID);
+//     if(index!=-1){
+//       customerDB.splice(index,1);
+//         loadAllCustomers();
+//         alert("Customer "+customerID+" Deleted");
+//         return;
+//     }
+//     alert("No Customer Found");
+//   });
+
+
+
+//     function loadAllCustomers() {
+//     $("#cstTable>tr").remove();
+//     for(let i=0;i<customerDB.length;i++){
+//         let customerID=customerDB[i].id;
+//         let customerName=customerDB[i].name;
+//         let customerAddress=customerDB[i].address;
+//         let customerTP=customerDB[i].contact;
+//         let row = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerTP}</td></tr>`;
+//         $("#cstTable").append(row);
+//     }
+
+// }
+
+//     function saveCustomer() {
+//       let customerID = $("#txtCustomerId").val();
+//       let customerName = $("#txtCustomerName").val();
+//       let customerAddress = $("#txtCustomerAddress").val();
+//       let customerContact = $("#txtCustomerContact").val();
+
+//       var customerObject = {
+//         id: customerID,
+//         name: customerName,
+//         address: customerAddress,
+//         contact: customerContact
+//       };
+//       customerDB.push(customerObject);
+//     }
+  
+
+    // $("#btnCustomerSearch2").click(function () {
+    //     var searchID = $("#InputCusId").val();
+    //     var response = searchCustomer(searchID);
+    //     if (response) {
+    //         $("#InputCusId").val(response.id);
+    //         $("#InputCusName").val(response.name);
+    //         $("#InputCusAddress").val(response.address);
+    //         $("#InputCusContact").val(response.contact);
+    //     }else{
+    //         clearAll();
+    //         alert("No Such a Customer");
+    //     }
+    //     $("#btnAddTocart").attr('disabled', true);
+    // });
+
+    // $("#btnItemSearch2").click(function () {
+    //     var searchID = $("#InputItemCode").val();
+    //     var response = searchItem(searchID);
+    //     if (response) {
+    //         $("#InputItemCode").val(response.id);
+    //         $("#InputItemType").val(response.name);
+    //         $("#InputItemQtyHand").val(response.qty);
+    //         $("#InputItemPrice").val(response.price);
+    //     }else{
+    //         clearAllItem();
+    //         alert("No Such a Item");
+    //     }
+    //     $("#btnAddTocart").attr('disabled', false);
+    //   });
+    
+
+    // $("#btnAddTocart").click(function () {
+    //   saveOrder();
+    //   loadAllOrderDetails();
+    //   clearOrderDetails();
+    // });
+
+    
+    // $("#btnClearOrder").click(function () {
+    //   clearOrderDetails();
+    // });
+
+    
+    // function saveOrder() {
+    //   let itemID = $("#InputItemCode").val();
+    //   let itemName = $("#InputItemType").val();
+    //   let itemQty = $("#InputItemQtySale").val();
+    //   let itemPrice = $("#InputItemPrice").val();
+    //   let itemTotal = $("#InputItemPrice").val()*$("#InputItemQtySale").val();
+
+    //   var orderObject = {
+    //     id: itemID,
+    //     name: itemName,
+    //     qty: itemQty,
+    //     price: itemPrice,
+    //     total: itemTotal
+    //   };
+    //   orderDB.push(orderObject);
+    // }
+
+    // function loadAllOrderDetails() {
+    //     $("#tblOrder").empty();
+    //     for (var i of orderDB) {
+    //         let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.qty}</td><td>${i.price}</td><td>${i.total}</td></tr>`;
+    //         $("#tblOrder").append(row);
+    //     }
+    // }
+
+    // function clearOrderDetails() {
+    //   $('#InputItemCode,#InputItemType,#InputItemQtySale,#InputItemPrice,#InputItemQtyHand').val("");
+    //   //$('#InputCusId,#InputCusName,#InputCusAddress,#InputCusContact').val("");
+    //   $('#InputItemCode').focus();
+    //   $("#btnAddTocart").attr('disabled', true);
+    // }
+
+   
+    // function searchCustomer(id) {
+    //     for (let i = 0; i < customerDB.length; i++) {
+    //         if (customerDB[i].id == id) {
+    //             return customerDB[i];
+    //         }
+    //     }
+    // }
+
+    
+
+    // items  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  //   $("#btnItemAdd").click(function () {
+  //       saveItem();
+  //       clearAllItem();
+  //       loadAllItems();
+  //       loadItemsDrop();
+  //   });
+
+  //   $("#btnItemClear").click(function () {  
+  //       clearAll();
+  //   });
+
+  //   $("#btnItemSearch").click(function () {
+  //       var searchID = $("#txtItemSearch").val();
+  //       var response = searchItem(searchID);
+  //       if (response) {
+  //           $("#txtItemId").val(response.id);
+  //           $("#txtItemName").val(response.name);
+  //           $("#txtItemQty").val(response.qty);
+  //           $("#txtItemPrice").val(response.price);
+  //       }else{
+  //           clearAllItem();
+  //           alert("No Such a Item");
+  //       }
+  //     });
+
+    
+  // $("#btnItemDelete").click(function () {
+  //   let itemCode=$("#txtItemSearch").val();
+  //   let index=searchItem(itemCode);
+  //   if(index!=-1){
+  //     itemDB.splice(index,1);
+  //       loadAllItems();
+  //       alert("Item "+itemCode+" Deleted");
+  //       return;
+  //   }
+  //   alert("No Item Found");
+  // });
+
+  //   // $("#dropItems > li > a").click(function () {
+  //   //     var searchID = $(this).val();
+
+  //   //     var response = searchItem(searchID);
+  //   //     if (response) {
+  //   //         $("#itemName").val(response.name);
+  //   //         $("#itemQtyHand").val(response.qty);
+  //   //         $("#itemPrice").val(response.price);
+  //   //     }else{
+  //   //         alert("No Such a Item");
+  //   //     }
+  //   // });
+
+  //   function loadAllItems() {
+  //       $("#tblItem").empty();
+  //       for (var i of itemDB) {
+  //           let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.qty}</td><td>${i.price}</td></tr>`;
+  //           $("#tblItem").append(row);
+  //       }
+  //   }
+
+  //   // function loadItemsDrop() {
+  //   //     $("#dropItems").empty();
+  //   //     for (var i of itemDB) {
+  //   //         let drops = `<li><a class="dropdown-item">${i.id}</li></a>`;
+  //   //         $("#dropItems").append(drops);
+  //   //     }
+  //   // }
+
+  //   function saveItem() {
+   
+  //     let itemID = $("#txtItemId").val();
+  //     let itemName = $("#txtItemName").val();
+  //     let itemQty = $("#txtItemQty").val();
+  //     let itemPrice = $("#txtItemPrice").val();
+
+  //     var itemObject = {
+  //       id: itemID,
+  //       name: itemName,
+  //       qty: itemQty,
+  //       price: itemPrice
+  //     };
+  //     itemDB.push(itemObject);
+  //   }
+
+  //   function searchItem(id) {
+  //       for (let i = 0; i < itemDB.length; i++) {
+  //           if (itemDB[i].id == id) {
+  //               return itemDB[i];
+  //           }
+  //       }
+  //   }
+
+  //   const itemIDRegEx = /^(I-)[0-9]{1,3}$/;
+  //   const itemNameRegEx = /^[A-z ]{4,20}$/;
+  //   const itemQtyRegEx = /^[0-9]{1,}$/;
+  //   const itemPriceRegEx = /^[0-9]{1,}[.]?[0-9]{1,2}$/;
+
+
+  //   $('#txtItemId,#txtItemName,#txtItemQty,#txtItemPrice').on('keydown', function (eventOb) {
+  //       if (eventOb.key == "Tab") {
+  //           eventOb.preventDefault(); 
+  //       }
+  //   });
+
+  //   $('#txtItemId,#txtItemName,#txtItemQty,#txtItemPrice').on('blur', function () {
+  //       ItemformValid();
+  //   });
+
+  //   $("#txtItemId").on('keyup', function (eventOb) {
+  //       setItemButton();
+  //       if (eventOb.key == "Enter") {
+  //           checkIfValidItem();
+  //       }
+
+  //       if (eventOb.key == "Control") {
+  //           var typedCustomerID = $("#txtItemId").val();
+  //           var srcItem = searchItemFromID(typedItemID);
+  //           $("#txtItemId").val(srcItem.getItemID());
+  //           $("#txtItemName").val(srcItem.getItemName());
+  //           $("#txtItemQty").val(srcItem.getItemQty());
+  //           $("#txtItemPrice").val(srcItem.getItemPrice());
+  //       }
+  //   });
+
+  //   $("#txtItemName").on('keyup', function (eventOb) {
+  //       setItemButton();
+  //       if (eventOb.key == "Enter") {
+  //         checkIfValidItem()
+  //       }
+  //   });
+
+  //   $("#txtItemQty").on('keyup', function (eventOb) {
+  //       setItemButton();
+  //       if (eventOb.key == "Enter") {
+  //         checkIfValidItem()
+  //       }
+  //   });
+
+  //   $("#txtItemPrice").on('keyup', function (eventOb) {
+  //       setItemButton();
+  //       if (eventOb.key == "Enter") {
+  //         checkIfValidItem()
+  //       }
+  //   });
+  
+  //   $("#btnItemadd").attr('disabled', true);
+
+  //   function clearAllItem() {
+  //       $('#txtItemId,#txtItemName,#txtItemQty,#txtItemPrice').val("");
+  //       $('#txtItemId,#txtItemName,#txtItemQty,#txtItemPrice').css('border', '2px solid #ced4da');
+  //       $('#txtItemId').focus();
+  //       $("#btnItemadd").attr('disabled', true);
+  //       loadAllItems();
+  //       $("#lblitemid,#lblitemname,#lblitemqty,#lblitemprice").text("");
+  //   }
+
+  //   function ItemformValid() {
+  //       var itemID = $("#txtItemId").val();
+  //       $("#txtItemId").css('border', '3px solid green');
+  //       $("#lblitemid").text("");
+  //       if (itemIDRegEx.test(itemID)) {
+  //           var itemName = $("#txtItemName").val();
+  //           if (itemNameRegEx.test(itemName)) {
+  //               $("#txtItemName").css('border', '3px solid green');
+  //               $("#lblitemname").text("");
+  //               var itemQty = $("#txtItemQty").val();
+  //               if (itemQtyRegEx.test(itemQty)) {
+  //                   var itemPrice = $("#txtItemPrice").val();
+  //                   var resp = itemPriceRegEx.test(itemPrice);
+  //                   $("#txtItemQty").css('border', '3px solid green');
+  //                   $("#lblitemqty").text("");
+  //                   if (resp) {
+  //                       $("#txtItemPrice").css('border', '3px solid green');
+  //                       $("#lblitemprice").text("");
+  //                       return true;
+  //                   } else {
+  //                       $("#txtItemPrice").css('border', '3px solid red');
+  //                       $("#lblitemprice").text("item Price is a required field : Pattern 100.00 or 100");
+  //                       return false;
+  //                   }
+  //               } else {
+  //                   $("#txtItemQty").css('border', '3px solid red');
+  //                   $("#lblitemqty").text("Item Qty is a required field :1");
+  //                   return false;
+  //               }
+  //           } else {
+  //               $("#txtItemName").css('border', '3px solid red');
+  //               $("#lblitemname").text("Item Name is a required field : Mimimum 4, Max 20, Spaces Allowed");
+  //               return false;
+  //           }
+  //       } else {
+  //           $("#txtItemId").css('border', '3px solid red');
+  //           $("#lblitemid").text("Item ID is a required field : Pattern I-000");
+  //           return false;
+  //       }
+  //   }
+
+  //   function checkIfValidItem() {
+  //       var itemID = $("#txtItemId").val();
+  //       if (itemIDRegEx.test(itemID)) {
+  //           $("#txtItemName").focus();
+  //           var itemName = $("#txtItemName").val();
+  //           if (itemNameRegEx.test(itemName)) {
+  //               $("#txtItemQty").focus();
+  //               var itemQty = $("#txtItemQty").val();
+  //               if (itemQtyRegEx.test(itemQty)) {
+  //                   $("#txtItemPrice").focus();
+  //                   var itemPrice = $("#txtItemPrice").val();
+  //                   var resp = itemPriceRegEx.test(itemPrice);
+  //                   if (resp) {
+  //                       let res = confirm("Do you really need to add this Item..?");
+  //                       if (res) {
+  //                           saveItem();
+  //                           clearAllItem();
+  //                       }
+  //                   } else {
+  //                       $("#txtItemPrice").focus();
+  //                   }
+  //               } else {
+  //                   $("#txtItemQty").focus();
+  //               }
+  //           } else {
+  //               $("#txtItemName").focus();
+  //           }
+  //       } else {
+  //           $("#txtItemId").focus();
+  //       }
+  //   }
+
+  //   function setItemButton() {
+  //       let b = ItemformValid();
+  //       if (b) {
+  //           $("#btnItemAdd").attr('disabled', false);
+  //       } else {
+  //           $("#btnItemAdd").attr('disabled', true);
+  //       }
+  //   }
+
+  //   $('#btnItemAdd').click(function () {
+  //       checkIfValidItem();
+  //   });
+
+  </script>
+
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  
+</body>
+</html>
