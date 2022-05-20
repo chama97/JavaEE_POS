@@ -79,6 +79,29 @@ $("#btnUpdateItem").click(function () {
     });
 });
 
+$("#btnItemSearch").click(function () {
+    var searchID = $("#txtItemSearch").val();
+    $.ajax({
+        url: "item?option=SEARCH&searchItemID="+searchID,
+        method: "GET",
+        success: function (res) {
+            if (res.status == 200) {
+                $("#itemCode").val(res.data.code);
+                $("#itemType").val(res.data.type);
+                $("#itemQty").val(res.data.qty);
+                $("#itemPrice").val(res.data.price);
+            } else {
+                alert(res.data);
+            }
+        },
+        error: function (ob, textStatus, error) {
+            console.log(ob);
+            console.log(textStatus);
+            console.log(error);
+        }
+    });
+});
+
 loadAllItems();
 
 function loadAllItems() {

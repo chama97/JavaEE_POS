@@ -86,11 +86,11 @@
         <div class="col">
             <div  class="mt-2">
                 <form id="search" class="d-flex">
-                    <input id="txtCustomerSearch" aria-label="Search" class="border form-control me-2  border-primary border-3" placeholder="Enter Item" type="search">
-                    <button id="btnCustomerSearch" class="btn btn-outline-success border-success border-3" type="button" data-bs-toggle="modal" data-bs-target="#addModal2">Search</button>
+                    <input id="txtCustomerSearch" aria-label="Search" name="searchCustomerID" class="border form-control me-2  border-primary border-3" placeholder="Enter Item" type="search">
+                    <button id="btnCustomerSearch" class="btn btn-outline-success border-success border-3" type="button" >Search</button>
                 </form>
             </div>
-            <table class="table table-bordered table-hover table-bordered border-light" style="background-color: #90bfdf;">
+            <table class="table table-bordered table-hover table-bordered border-light mt-5" style="background-color: #90bfdf;">
                 <thead class="table-striped" style="background-color: #024877; color: white;">
                 <tr>
                     <th>Customer ID</th>
@@ -160,14 +160,14 @@
                     </div>
                 </form>
             </div>
-            <div  class="col mt-2">
-                <form  class="d-flex search">
-                    <input id="txtItemSearch" aria-label="Search" class="border form-control me-2  border-primary border-3" placeholder="Enter Item" type="search">
-                    <button id="btnItemSearch" class="btn btn-outline-success border-success border-3" type="button" data-bs-toggle="modal" data-bs-target="#addModal2">Search</button>
-                </form>
-            </div>
             <div class="col">
-                <table class="table table-bordered table-hover table-bordered border-light" style="background-color: #90bfdf;">
+                <div  class="mt-2">
+                    <form  class="d-flex search">
+                        <input id="txtItemSearch" aria-label="Search" name="searchItemID" class="border form-control me-2  border-primary border-3" placeholder="Enter Item" type="search">
+                        <button id="btnItemSearch" class="btn btn-outline-success border-success border-3" type="button" data-bs-toggle="modal" data-bs-target="#addModal2">Search</button>
+                    </form>
+                </div>
+                <table class="table table-bordered table-hover table-bordered border-light mt-5" style="background-color: #90bfdf;">
                     <thead class="table-striped" style="background-color: #024877; color: white;">
                     <tr>
                         <th>Customer ID</th>
@@ -211,10 +211,10 @@
         <div class="detail col-11 col-md-5 col-lg-4   mt-5">
             <div class="divs"><span class="text text-light">Customer Details</span></div>
             <div class="modal-body">
-                <form>
+                <form id="customerPoForm">
                     <div class="mt-3">
                         <input id="InputCusId" aria-label="Search" class="border form-control me-2  border-primary border-3" placeholder="Enter Customer Id" type="search">
-                        <button id="btnCustomerSearch2" class="mt-3 btn btn-outline-success border-success border-3" type="button">Search</button>
+                        <button id="btnCustomerSearch2" class="mt-3 btn btn-outline-success border-success border-3" name="searchItemsID" type="button">Search</button>
 
                     </div>
                     <div class="mt-5">
@@ -238,7 +238,7 @@
 
             <div class="divs"><span class="text text-light">Item Details</span></div>
             <div class="modal-body">
-                <form>
+                <form id="itemPoForm">
                     <div class="dropdown mt-3 d-flex">
                         <input id="InputItemCode" aria-label="Search" class="border form-control me-2  border-primary border-3" placeholder="Enter Item code" type="search">
                         <button id="btnItemSearch2" class="mt-1 btn btn-outline-success border-success border-3" type="button">Search</button>
@@ -270,25 +270,25 @@
         <div  class="detail col-11 col-md-11 col-lg-3  mt-5">
             <div class="divs"><span class="text text-light ">Order Details</span></div>
             <div class="modal-body">
-                <form>
+                <form id="orderPoForm">
                     <div class="mb-3 mt-3">
                         <input type="date" class="form-control border-primary border-2" id="orderDate">
                     </div>
                     <div class="form-floating mt-4">
-                        <input type="text" class="form-control" id="orderId" placeholder="Price">
-                        <label for="floatingPassword">Order Id</label>
+                        <input type="text" class="form-control" id="orderId" placeholder="Order Id">
+                        <label for="orderId">Order Id</label>
                     </div>
                     <div class="form-floating mt-4">
                         <input type="text" class="form-control border-danger border-4" id="orderPrice" placeholder="Price" >
-                        <label for="floatingPassword">Price</label>
+                        <label for="orderPrice">Price</label>
                     </div>
                     <div class="form-floating mt-4">
-                        <input type="text" class="form-control border-primary border-4" id="orderDiscount" placeholder="Price">
-                        <label for="floatingPassword">Discount %</label>
+                        <input type="text" class="form-control border-primary border-4" id="orderDiscount" placeholder="Discount %">
+                        <label for="orderDiscount">Discount %</label>
                     </div>
                     <div class="form-floating mt-4">
-                        <input type="text" class="form-control border-success border-4" id="orderBalance" placeholder="Price">
-                        <label for="floatingPassword">Balance</label>
+                        <input type="text" class="form-control border-success border-4" id="orderBalance" placeholder="Balance">
+                        <label for="orderBalance">Balance</label>
                     </div>
                     <div class="form-floating mt-5">
                         <button id="btnPlaceOrder" type="button" class="btn btn-success right">Place Order</button>

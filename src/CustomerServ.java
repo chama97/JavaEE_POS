@@ -24,9 +24,30 @@ public class CustomerServ extends HttpServlet {
             switch (option) {
                 case "SEARCH":
 
-                    //write the code for customer search
+                    PreparedStatement pstm = connection.prepareStatement("select * from Customer where id=?");
+                    String customerID = req.getParameter("searchCustomerID");
+                    pstm.setObject(1, customerID);
+                    ResultSet rst1 = pstm.executeQuery();
+                    JsonObjectBuilder objectBuilder1 = Json.createObjectBuilder();
 
+                    if(rst1.next()){
+                        String id = rst1.getString(1);
+                        String name = rst1.getString(2);
+                        String address = rst1.getString(3);
+                        double salary = rst1.getDouble(4);
+
+                        objectBuilder1.add("id", id);
+                        objectBuilder1.add("name", name);
+                        objectBuilder1.add("address", address);
+                        objectBuilder1.add("salary", salary);
+                    }
+                    JsonObjectBuilder response1 = Json.createObjectBuilder();
+                    response1.add("status", 200);
+                    response1.add("message", "Done");
+                    response1.add("data", objectBuilder1.build());
+                    writer.print(response1.build());
                     break;
+
                 case "GETALL":
                     ResultSet rst = connection.prepareStatement("select * from Customer").executeQuery();
 

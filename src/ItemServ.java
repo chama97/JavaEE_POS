@@ -25,9 +25,30 @@ public class ItemServ extends HttpServlet {
             switch (option) {
                 case "SEARCH":
 
-                    //write the code for customer search
+                    PreparedStatement pstm = connection.prepareStatement("select * from Item where code=?");
+                    String customerID = req.getParameter("searchItemID");
+                    pstm.setObject(1, customerID);
+                    ResultSet rst1 = pstm.executeQuery();
+                    JsonObjectBuilder objectBuilder1 = Json.createObjectBuilder();
 
+                    if(rst1.next()){
+                        String code = rst1.getString(1);
+                        String type = rst1.getString(2);
+                        int qty = rst1.getInt(3);
+                        double price = rst1.getDouble(4);
+
+                        objectBuilder1.add("code", code);
+                        objectBuilder1.add("type", type);
+                        objectBuilder1.add("qty", qty);
+                        objectBuilder1.add("price", price);
+                    }
+                    JsonObjectBuilder response1 = Json.createObjectBuilder();
+                    response1.add("status", 200);
+                    response1.add("message", "Done");
+                    response1.add("data", objectBuilder1.build());
+                    writer.print(response1.build());
                     break;
+
                 case "GETALL":
                     ResultSet rst = connection.prepareStatement("select * from Item").executeQuery();
 
