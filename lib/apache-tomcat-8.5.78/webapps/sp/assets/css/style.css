@@ -1,0 +1,197 @@
+.nav{
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin-left: 5px;
+    color: rgb(231, 231, 250);
+  }
+  .nav img {
+    margin-right: 5px;
+  }
+
+  .nav-item{
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  .custombar{
+    height: 60px;
+    background-image: linear-gradient(to right, rgb(50, 66, 158),rgb(231, 231, 250));
+  }
+
+  .custombar p{
+    font-size: 27px;
+    font-weight: 500;
+    color: white;
+    margin-left: 15px;
+  }
+
+  .custombar p img{
+    margin-right: 10px;
+  }
+
+  .breadcrumb{
+    margin-left: -10px;
+    font-weight: 500;
+  }
+
+  #addCustomer{
+    background-image: linear-gradient(to right, rgb(6, 156, 51),rgb(144, 211, 161));
+    color: white;
+    font-weight: 500;
+  }
+
+  #deleteCustomer{
+    background-image: linear-gradient(to right, rgb(196, 0, 0),rgb(223, 130, 130));
+    color: white;
+    font-weight: 500;
+  }
+
+  #updateCustomer{
+    background-image: linear-gradient(to right, rgb(0, 104, 202),rgb(130, 163, 223));
+    color: white;
+    font-weight: 500;
+  }
+
+  #updateItem{
+    background-image: linear-gradient(to right, rgb(0, 104, 202),rgb(130, 163, 223));
+    color: white;
+    font-weight: 500;
+  }
+
+  #deleteItem{
+    background-image: linear-gradient(to right, rgb(196, 0, 0),rgb(223, 130, 130));
+    color: white;
+    font-weight: 500;
+  }
+
+  #addItem{
+    background-image: linear-gradient(to right, rgb(6, 156, 51),rgb(144, 211, 161));
+    color: white;
+    font-weight: 500;
+  }
+
+
+  .btn-group{
+    margin-left: -10px;
+    margin-top: 10px;
+  }
+
+  #search{
+    margin-top: 10px;
+  }
+
+  #dropdownMenuLink{
+    margin-right: 10px;
+  }
+
+  #btnsCustomer{
+    height: 50px;
+  }
+
+ 
+
+
+  /* items  //////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+.itembar{
+  height: 60px;
+  background-image: linear-gradient(to right, rgb(50, 66, 158),rgb(231, 231, 250));
+
+}
+
+.itembar p{
+  font-size: 27px;
+  font-weight: 500;
+  color: white;
+  margin-left: 15px;
+}
+
+.itembarr p img{
+  margin-right: 10px;
+}
+
+.breadcrumb{
+  margin-left: -10px;
+  font-weight: 500;
+}
+
+#btnsItems{
+  height: 50px;
+}
+
+
+/* order //////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.orderbar{
+    height: 60px;
+    background-image: linear-gradient(to right, rgb(50, 66, 158),rgb(231, 231, 250));
+
+  }
+
+  .orderbar p{
+    font-size: 27px;
+    font-weight: 500;
+    color: white;
+    margin-left: 15px;
+
+  }
+
+  .orderbar p img{
+    margin-right: 10px;
+  }
+
+  .breadcrumb{
+    margin-left: -10px;
+    font-weight: 500;
+  }
+
+  .detail{
+    background-color: rgb(222, 222, 238);  
+    margin: 1%;
+  }
+
+  .abcd{
+    justify-content: center;
+    display: flex;
+  }
+
+  .divs{
+    height: 50px;
+    background-color: green;
+    width:100%; 
+    justify-content: center;
+    align-items: center;
+    display: flex; 
+    font-size: 18px;
+    font-weight: 500;    
+  }
+
+  .item_type{
+     margin-left: 5%;
+     width: 100%;
+  }
+
+  #orderPrice{
+    color: rgb(207, 18, 18);
+    font-size: 27px;
+    font-weight: 500;
+  }
+
+  #orderDiscount{
+    color: rgb(26, 49, 175);
+    font-size: 27px;
+    font-weight: 500;
+  }
+
+  #orderBalance{
+    color: rgb(1, 133, 18);
+    font-size: 27px;
+    font-weight: 500;
+  }
+
+  #orderId{
+    color: rgb(109, 119, 19);
+    font-size: 27px;
+    font-weight: 500;
+  }

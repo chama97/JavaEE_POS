@@ -1,0 +1,85 @@
+08-Apr-2022 18:30:19.566 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.78
+08-Apr-2022 18:30:19.665 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 31 2022 16:05:28 UTC
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.78.0
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_271\jre
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_271-b09
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\conf\logging.properties
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+08-Apr-2022 18:30:19.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78
+08-Apr-2022 18:30:19.688 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78
+08-Apr-2022 18:30:19.689 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\temp
+08-Apr-2022 18:30:19.689 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+08-Apr-2022 18:30:19.690 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [{4}].
+08-Apr-2022 18:30:19.691 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+08-Apr-2022 18:30:20.335 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+08-Apr-2022 18:30:41.512 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+08-Apr-2022 18:30:44.391 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 29539 ms
+08-Apr-2022 18:30:46.305 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+08-Apr-2022 18:30:46.306 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/8.5.78]
+08-Apr-2022 18:30:47.083 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\docs]
+08-Apr-2022 18:30:52.046 WARNING [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [821] milliseconds.
+08-Apr-2022 18:30:52.206 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\docs] has finished in [5,122] ms
+08-Apr-2022 18:30:52.207 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\examples]
+08-Apr-2022 18:31:03.302 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\examples] has finished in [11,095] ms
+08-Apr-2022 18:31:03.303 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\host-manager]
+08-Apr-2022 18:31:03.515 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\host-manager] has finished in [212] ms
+08-Apr-2022 18:31:03.517 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\manager]
+08-Apr-2022 18:31:03.917 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\manager] has finished in [401] ms
+08-Apr-2022 18:31:03.918 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\ROOT]
+08-Apr-2022 18:31:04.226 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\ROOT] has finished in [308] ms
+08-Apr-2022 18:31:04.234 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+08-Apr-2022 18:31:05.123 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 20731 ms
+08-Apr-2022 20:17:38.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.78
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 31 2022 16:05:28 UTC
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.78.0
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_271\jre
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_271-b09
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\conf\logging.properties
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\temp
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [{4}].
+08-Apr-2022 20:17:38.286 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+08-Apr-2022 20:17:38.400 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+08-Apr-2022 20:17:39.223 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+08-Apr-2022 20:17:39.286 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2414 ms
+08-Apr-2022 20:17:39.386 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+08-Apr-2022 20:17:39.386 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/8.5.78]
+08-Apr-2022 20:17:39.418 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\docs]
+08-Apr-2022 20:17:40.092 WARNING [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [155] milliseconds.
+08-Apr-2022 20:17:40.186 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\docs] has finished in [768] ms
+08-Apr-2022 20:17:40.186 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\examples]
+08-Apr-2022 20:17:41.485 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\examples] has finished in [1,299] ms
+08-Apr-2022 20:17:41.485 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\host-manager]
+08-Apr-2022 20:17:41.561 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\host-manager] has finished in [76] ms
+08-Apr-2022 20:17:41.561 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\manager]
+08-Apr-2022 20:17:41.608 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\manager] has finished in [47] ms
+08-Apr-2022 20:17:41.608 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\ROOT]
+08-Apr-2022 20:17:41.649 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\ROOT] has finished in [41] ms
+08-Apr-2022 20:17:41.649 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+08-Apr-2022 20:17:41.712 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 2421 ms
+08-Apr-2022 20:18:11.702 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\New folder]
+08-Apr-2022 20:18:11.816 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\New folder] has finished in [114] ms
+08-Apr-2022 20:18:22.336 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/New folder]
+08-Apr-2022 20:18:22.580 INFO [localhost-startStop-3] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\gdse]
+08-Apr-2022 20:18:22.612 INFO [localhost-startStop-3] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [F:\apache-tomcat-8.5.78-windows-x64\apache-tomcat-8.5.78\webapps\gdse] has finished in [32] ms

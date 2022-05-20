@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POS_Customers</title>
+    <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class=" navbar navbar-expand-lg navbar-dark " style="background-color: #5f8ba8;">
+    <div class="container-fluid ">
+        <a class="nav navbar-brand  mt-1" href="#" >
+            <img src="assets/img/icons8_multibanco_96px.png" alt="" width="45" height="45" class="d-inline-block align-text-top"> PLACE ORDER SYSTEM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" id="nav-home" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav-custom" href="#" >Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav-item" href="#">Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav-order" href="#">PlaceOrder</a>
+                </li>
+            </ul>
+            <button class="btn btn-danger" type="submit">LOGOUT</button>
+        </div>
+    </div>
+</nav>
+
+<!-------------Customer---------------->
+
+<section class="container" id="customWindow">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb mt-5">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Customers</li>
+        </ol>
+    </nav>
+
+    <section class="row">
+        <div class="custombar col-12 col-md-12 mt-1">
+            <p class="mt-2"><img src="assets/img/users.png" alt="" width="45" height="45">Customers</p>
+        </div>
+    </section>
+    <section class="container mt-5">
+      <div class="row mt-3">
+        <div class="col-4">
+            <form id="customerForm">
+                <div class="mb-3">
+                    <label class="form-label" for="cusID">Customer ID</label>
+                    <input class="form-control" id="cusID" name="customerID" placeholder="Customer ID" type="text">
+                    <p><small class="text-danger pl-1" id="lblcusid"></small></p>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="cusName">Customer Name</label>
+                    <input class="form-control" id="cusName" name="customerName" placeholder="Customer Name" type="text">
+                    <p><small class="text-danger pl-1" id="lblcusname"></small></p>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="cusAddress">Customer Address</label>
+                    <input class="form-control" id="cusAddress" name="customerAddress" placeholder="Customer Address" type="text">
+                    <p><small class="text-danger pl-1" id="lblcusaddress"></small></p>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="cusSalary">Customer Salary</label>
+                    <input class="form-control" id="cusSalary" name="customerSalary" placeholder="Customer Salary" type="text">
+                    <p><small class="text-danger pl-1" id="lblcussalary"></small></p>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success" id="btnSaveCustomer" type="button">Save</button>
+                    <button class="btn btn-primary" id="btnUpdateCustomer" type="button">Update</button>
+                    <button class="btn btn-danger" id="btnDeleteCustomer" type="button">Delete</button>
+                    <button class="btn btn-success" id="btnGetAllCustomers">Get All</button>
+                </div>
+            </form>
+        </div>
+        <div  class="col mt-2">
+              <form id="search" class="d-flex">
+                  <input id="txtCustomerSearch" aria-label="Search" class="border form-control me-2  border-primary border-3" placeholder="Enter Item" type="search">
+                  <button id="btnCustomerSearch" class="btn btn-outline-success border-success border-3" type="button" data-bs-toggle="modal" data-bs-target="#addModal2">Search</button>
+              </form>
+        </div>
+        <div class="col">
+            <table class="table table-bordered table-hover table-bordered border-light" style="background-color: #90bfdf;">
+                <thead class="table-striped" style="background-color: #024877; color: white;">
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                </tr>
+                </thead>
+                <tbody id="tblCustomerJson">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </section>
+</section>
+
+<!----------------Item----------------------->
+
+<section class="container" id="itemWindow">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb mt-5">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Items</li>
+        </ol>
+    </nav>
+
+    <section class="row">
+        <div class="custombar col-12 col-md-12 mt-1">
+            <p class="mt-2"><img src="assets/img/items.png" alt="" width="45" height="45">Customers</p>
+        </div>
+    </section>
+    <section class="container mt-5">
+        <div class="row mt-3">
+            <div class="col-4">
+                <form id="itemForm">
+                    <div class="mb-3">
+                        <label class="form-label" for="itemCode">Item Code</label>
+                        <input class="form-control" id="itemCode" name="itemsCode" placeholder="Item Code" type="text">
+                        <p><small class="text-danger pl-1" id="lblitemid"></small></p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="itemType">Item Type</label>
+                        <input class="form-control" id="itemType" name="itemsType" placeholder="Item Type" type="text">
+                        <p><small class="text-danger pl-1" id="lblitemname"></small></p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="itemQty">Item Qty</label>
+                        <input class="form-control" id="itemQty" name="itemsQty" placeholder="Item Qty" type="text">
+                        <p><small class="text-danger pl-1" id="lblitemqty"></small></p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="itemPrice">Item Price</label>
+                        <input class="form-control" id="itemPrice" name="itemsPrice" placeholder="Item Price" type="text">
+                        <p><small class="text-danger pl-1" id="lblitemprice"></small></p>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-success" id="btnSaveItem" type="button">Save</button>
+                        <button class="btn btn-primary" id="btnUpdateItem" type="button">Update</button>
+                        <button class="btn btn-danger" id="btnDeleteItem" type="button">Delete</button>
+                        <button class="btn btn-success" id="btnGetAllItems">Get All</button>
+                    </div>
+                </form>
+            </div>
+            <div  class="col mt-2">
+                <form  class="d-flex search">
+                    <input id="txtItemSearch" aria-label="Search" class="border form-control me-2  border-primary border-3" placeholder="Enter Item" type="search">
+                    <button id="btnItemSearch" class="btn btn-outline-success border-success border-3" type="button" data-bs-toggle="modal" data-bs-target="#addModal2">Search</button>
+                </form>
+            </div>
+            <div class="col">
+                <table class="table table-bordered table-hover table-bordered border-light" style="background-color: #90bfdf;">
+                    <thead class="table-striped" style="background-color: #024877; color: white;">
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Contact</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tblItem">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<!----------------Order----------------------->
+
+<section class="container" id="orderWindow">
+</section>
+
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+
+<script>
+    document.getElementById("itemWindow").style.display="none";
+    document.getElementById("orderWindow").style.display="none";
+
+    document.getElementById("nav-custom").addEventListener("click",function () {
+        document.getElementById("customWindow").style.display="block";
+        document.getElementById("itemWindow").style.display="none";
+        document.getElementById("orderWindow").style.display="none";
+    });
+
+    document.getElementById("nav-item").addEventListener("click",function () {
+        document.getElementById("itemWindow").style.display="block";
+        document.getElementById("customWindow").style.display="none";
+        document.getElementById("orderWindow").style.display="none";
+    });
+
+    document.getElementById("nav-order").addEventListener("click",function () {
+        document.getElementById("orderWindow").style.display="block";
+        document.getElementById("itemWindow").style.display="none";
+        document.getElementById("customWindow").style.display="none";
+    });
+</script>
+
+<script src="controller/CustomerController.js"></script>
+<script src="controller/ItemController.js"></script>
+<script src="controller/OrderController.js"></script>
+
+</body>
+</html>

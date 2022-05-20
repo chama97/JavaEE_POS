@@ -1,121 +1,117 @@
-
-$("#btnItemAdd").click(function () {
-    saveItem();
+$("#btnGetAllItems").click(function () {
     loadAllItems();
 });
 
-$("#btnItemClear").click(function () {  
-    clearAllItem();
+$("#btnSaveItem").click(function () {
+    var data = $("#itemForm").serialize(); // return query string of form with name:type-value
+    $.ajax({
+        url: "item",
+        method: "POST",
+        data: data,// if we send data with the request
+        success: function (res) {
+            if (res.status == 200) {
+                alert(res.message);
+                loadAllItems();
+            } else {
+                alert(res.data);
+            }
+        },
+        error: function (ob, textStatus, error) {
+            console.log(ob);
+            console.log(textStatus);
+            console.log(error);
+        }
+    });
 });
 
-$("#btnItemSearch").click(function () {
-    var searchID = $("#txtItemSearch").val();
-    var response = searchItem(searchID);
-    if (response) {
-        $("#txtItemId").val(response.getItemCode());
-        $("#txtItemName").val(response.getItemType());
-        $("#txtItemQty").val(response.getItemQty());
-        $("#txtItemPrice").val(response.getItemPrice());
-    }else{
-        clearAllItem();
-        alert("No Such a Item");
+
+$("#btnDeleteItem").click(function () {
+
+    let itemID = $("#itemCode").val();
+    $.ajax({
+        url: "item?ItemCode=" + itemID,// viya query string
+        method: "DELETE",
+        //data:data,// application/x-www-form-urlencoded
+        success: function (res) {
+            console.log(res);
+            if (res.status == 200) {
+                alert(res.message);
+                loadAllItems();
+            } else if (res.status == 400) {
+                alert(res.data);
+            } else {
+                alert(res.data);
+            }
+        },
+        error: function (ob, status, t) {
+            console.log(ob);
+            console.log(status);
+            console.log(t);
+        }
+    });
+});
+
+$("#btnUpdateItem").click(function () {
+
+    var itOb = {
+        code: $("#itemCode").val(),
+        type: $("#itemType").val(),
+        qty: $("#itemQty").val(),
+        price: $("#itemPrice").val()
     }
+    $.ajax({
+        url: "item",
+        method: "PUT",
+        data: JSON.stringify(itOb),
+        success: function (res) {
+            if (res.status == 200) {
+                alert(res.message);
+                loadAllItems();
+            } else if (res.status == 400) {
+                alert(res.message);
+            } else {
+                alert(res.data);
+            }
+        },
+        error: function (ob, errorStus) {
+            console.log(ob);
+        }
+    });
 });
 
-
-$("#btnItemUpdate").click(function () {
-    updateItem();
-    loadAllItems();
-    clearAllItem();
-});
-
-$("#btnUpdateItem").click(function () {  
-    var searchID = $("#txtItemSearch").val();
-    var response = searchItem(searchID);
-    if (response) {
-        $("#txtItemId2").val(response.getItemCode());
-        $("#txtItemName2").val(response.getItemType());
-        $("#txtItemQty2").val(response.getItemQty());
-        $("#txtItemPrice2").val(response.getItemPrice());
-    }else{
-        clearAllItem();
-        alert("No Such a Item");
-    }
-});
-
-
-$("#btnItemDelete").click(function () {
-    let itemCode=$("#txtItemSearch").val();
-    let index=searchItem(itemCode);
-    if(index!=-1){
-        itemDB.splice(index,1);
-        loadAllItems();
-        alert("Item "+itemCode+" Deleted");
-        return;
-    }
-    alert("No Item Found");
-});
-
+loadAllItems();
 
 function loadAllItems() {
     $("#tblItem").empty();
-    for (var i of itemDB) {
-        let row = `<tr><td>${i.getItemCode()}</td><td>${i.getItemType()}</td><td>${i.getItemQty()}</td><td>${i.getItemPrice()}</td></tr>`;
-        $("#tblItem").append(row);
-    }
-}
-
-function saveItem() {
-  let itemID = $("#txtItemId").val();
-  let itemName = $("#txtItemName").val();
-  let itemQty = $("#txtItemQty").val();
-  let itemPrice = $("#txtItemPrice").val();
-
-  let index=isItemExists(itemID);
-    if(index!=-1){
-        alert("The Item ID Already Exists. Please Enter Another ID");
-    }else{
-        let i1=new Item(itemID,itemName,itemQty,itemPrice);
-        itemDB.push(i1);
-        clearAllItem();
-    }
-}
-
-function updateItem(){
-    let itemID = $("#txtItemId2").val();
-    let itemName = $("#txtItemName2").val();
-    let itemQty = $("#txtItemQty2").val();
-    let itemPrice = $("#txtItemPrice2").val();
-    let index=isItemExists(itemID);
-    if(index!=-1){
-        alert("Item Updated");
-        itemDB[index].setItemType(itemName);
-        itemDB[index].setItemQty(itemQty);
-        itemDB[index].setItemPrice(itemPrice);
-        loadAllItems()
-        return;
-    }
-    let i1=new Item(itemID,itemName,itemQty,itemPrice);
-    itemDB.push(i1);
-}
-
-function isItemExists(id){
-    let x=-1;
-    for(let i=0;i<itemDB.length;i++){
-        if(itemDB[i].getItemCode()==id) {
-            x = i;
+    $.ajax({
+        url: "item?option=GETALL",
+        method: "GET",
+        success: function (resp) {
+            for (const item of resp.data) {
+                let row = `<tr><td>${item.code}</td><td>${item.type}</td><td>${item.qty}</td><td>${item.price}</td></tr>`;
+                $("#tblItem").append(row);
+            }
+            bindClickEventsItem();
         }
-    }
-    return x;
+    });
 }
 
-function searchItem(id) {
-    for (let i = 0; i < itemDB.length; i++) {
-        if (itemDB[i].getItemCode() == id) {
-            return itemDB[i];
-        }
-    }
+function bindClickEventsItem() {
+    $("#tblItem>tr").click(function () {
+
+        let code = $(this).children().eq(0).text();
+        let type = $(this).children().eq(1).text();
+        let qty = $(this).children().eq(2).text();
+        let price = $(this).children().eq(3).text();
+
+        $("#itemCode").val(code);
+        $("#itemType").val(type);
+        $("#itemQty").val(qty);
+        $("#itemPrice").val(price);
+    });
 }
+
+
 
 //Validation//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
