@@ -34,47 +34,6 @@
     font-weight: 500;
   }
 
-  #addCustomer{
-    background-image: linear-gradient(to right, rgb(6, 156, 51),rgb(144, 211, 161));
-    color: white;
-    font-weight: 500;
-  }
-
-  #deleteCustomer{
-    background-image: linear-gradient(to right, rgb(196, 0, 0),rgb(223, 130, 130));
-    color: white;
-    font-weight: 500;
-  }
-
-  #updateCustomer{
-    background-image: linear-gradient(to right, rgb(0, 104, 202),rgb(130, 163, 223));
-    color: white;
-    font-weight: 500;
-  }
-
-  #updateItem{
-    background-image: linear-gradient(to right, rgb(0, 104, 202),rgb(130, 163, 223));
-    color: white;
-    font-weight: 500;
-  }
-
-  #deleteItem{
-    background-image: linear-gradient(to right, rgb(196, 0, 0),rgb(223, 130, 130));
-    color: white;
-    font-weight: 500;
-  }
-
-  #addItem{
-    background-image: linear-gradient(to right, rgb(6, 156, 51),rgb(144, 211, 161));
-    color: white;
-    font-weight: 500;
-  }
-
-
-  .btn-group{
-    margin-left: -10px;
-    margin-top: 10px;
-  }
 
   #search{
     margin-top: 10px;
@@ -146,19 +105,19 @@
     font-weight: 500;
   }
 
-  .detail{
+  .details{
     background-color: rgb(222, 222, 238);  
     margin: 1%;
   }
 
-  .abcd{
+  .orderDetails{
     justify-content: center;
     display: flex;
   }
 
-  .divs{
+  .headDiv{
     height: 50px;
-    background-color: green;
+    background-color: #1b3e57;
     width:100%; 
     justify-content: center;
     align-items: center;
