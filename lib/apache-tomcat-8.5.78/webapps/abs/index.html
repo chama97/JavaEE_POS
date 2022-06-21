@@ -366,7 +366,10 @@
 <script src="model/Cart.js"></script>
 <script src="db/Db.js"></script>
 
+
 <script>
+
+
     $("#btnCustomerSearch3").click(function () {
         var searchID = $("#txtCustomerSearch3").val();
         $.ajax({
@@ -477,6 +480,7 @@
             totalPrice = (+totalPrice) + (+cartDB[i].getTotalPrice());
         }
         $("#orderPrice").val(totalPrice+'/=');
+        $("#orderBalance").val(totalPrice+'/=');
     }
 
 
@@ -515,12 +519,14 @@
         $.ajax({
             url: "order",
             method: "POST",
-            contentType: "application/json", //You should state request's content type using MIME types
+            contentType: "application/json",
             data: JSON.stringify(orderOb), // format js object to valid json string
             success: function (res) {
                 if (res.status == 200) { // process is  ok
                     alert(res.message);
                     clearOrderDetails();
+                    cartDB.splice(0, cartDB.length);
+                    $("#tblCart").empty();
                 }
             },
             error: function (ob, errorStus) {
@@ -533,7 +539,7 @@
     function generateOrderId() {
         tempOid+=1;
         $("#orderId").val('O-00'+tempOid);
-        $.ajax({
+        /*$.ajax({
             url: "order",
             method: "GET",
             success: function (res) {
@@ -545,7 +551,7 @@
             error: function (ob, errorStus) {
                 console.log(ob); // other errors
             }
-        });
+        });*/
     }
 
     $("#btnCancelOrder").click(function () {
